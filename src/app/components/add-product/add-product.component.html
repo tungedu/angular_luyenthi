@@ -1,0 +1,164 @@
+<div class="w-full">
+  <h2 class="text-center my-4 text-4xl font-extrabold text-blue-500">
+    Add product
+  </h2>
+  <form
+    class="px-10 mt-4"
+    [formGroup]="createProduct"
+    (submit)="handleSubmit($event)"
+  >
+    <div class="w-[100%] mb-5 grid grid-cols-[60%_40%] gap-2">
+      <div class="">
+        <label
+          for="name"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Name</label
+        >
+        <input
+          type="name"
+          id="name"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Name..."
+          required
+          formControlName="name"
+        />
+        <div
+          *ngIf="
+            (createProduct['controls']['name'].dirty &&
+              createProduct['controls']['name'].errors) ||
+            (isError && createProduct['controls']['name'].errors)
+          "
+        >
+          <small
+            *ngIf="createProduct['controls']['name'].errors['required']"
+            class="text-red-600"
+            >*Name is required</small
+          >
+          <small
+            *ngIf="createProduct['controls']['name'].errors['minlength']"
+            class="text-red-600"
+            >*Name toi thieu 3 ki tu</small
+          >
+        </div>
+      </div>
+      <div class="">
+        <label
+          for="quantity"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Quantity</label
+        >
+        <input
+          type="number"
+          id="quantity"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Quantity..."
+          required
+          formControlName="quantity"
+        />
+        <div
+          *ngIf="
+            (createProduct['controls']['quantity'].dirty &&
+              createProduct['controls']['quantity'].errors) ||
+            (isError && createProduct['controls']['quantity'].errors)
+          "
+        >
+          <small
+            *ngIf="createProduct['controls']['quantity'].errors['required']"
+            class="text-red-600"
+            >*Quantity is required</small
+          >
+        </div>
+      </div>
+    </div>
+    <div class="w-[100%] mb-5 grid grid-cols-[60%_40%] gap-2">
+      <div class="">
+        <label
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Image</label
+        >
+        <input
+          type="text"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Image link..."
+          required
+          formControlName="image"
+        />
+        <div
+          *ngIf="
+            (createProduct['controls']['image'].dirty &&
+              createProduct['controls']['image'].errors) ||
+            (isError && createProduct['controls']['image'].errors)
+          "
+        >
+          <small
+            *ngIf="createProduct['controls']['image'].errors['required']"
+            class="text-red-600"
+            >*Image is required</small
+          >
+        </div>
+      </div>
+      <div class="">
+        <label
+          for="price"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Price</label
+        >
+        <input
+          type="number"
+          id="price"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Price..."
+          required
+          formControlName="price"
+        />
+        <div
+          *ngIf="
+            (createProduct['controls']['price'].dirty &&
+              createProduct['controls']['price'].errors) ||
+            (isError && createProduct['controls']['price'].errors)
+          "
+        >
+          <small
+            *ngIf="createProduct['controls']['price'].errors['required']"
+            class="text-red-600"
+            >*Price is required</small
+          >
+        </div>
+      </div>
+    </div>
+    <div class="w-[100%]">
+      <label
+        for="description"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Description</label
+      >
+      <textarea
+        id="description"
+        rows="4"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Description..."
+        required
+        formControlName="description"
+      ></textarea>
+      <div
+        *ngIf="
+          (createProduct['controls']['description'].dirty &&
+            createProduct['controls']['description'].errors) ||
+          (isError && createProduct['controls']['description'].errors)
+        "
+      >
+        <small
+          *ngIf="createProduct['controls']['description'].errors['required']"
+          class="text-red-600"
+          >*Description is required</small
+        >
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Submit
+    </button>
+  </form>
+</div>
